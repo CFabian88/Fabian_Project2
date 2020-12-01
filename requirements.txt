@@ -6,3 +6,4 @@ pandas-datareader==0.9.0
 Keras==2.4.3
 sklearn==0.0
 tensorflow==2.3.1
+h5py==2.10.0
