@@ -1,6 +1,6 @@
+from keras.models import load_model
 import streamlit as st
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import MinMaxScaler
 import pandas_datareader.data as web
 import datetime as dt
 from datetime import date
@@ -57,3 +57,5 @@ st.write(df)
 
 cols = list(df.columns.values)
 line_graph(df['Close'])
+
+model = load_model('stock_pred.h5')
