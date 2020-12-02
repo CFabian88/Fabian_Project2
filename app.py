@@ -59,7 +59,7 @@ st.title('Stock Return Analysis')
 
 # First Header
 st.header('Choose stock to analyze.')
-st.write('As we can below, our data consists of daily prices including the daily: open, high, low, close and return. For our return statistic. We are using the formula below, where P(i) = todays returns and P(i-1) = yesterdays returns)
+st.write('As we can below, our data consists of daily prices including the daily: open, high, low, close and return. For our return statistic. We are using the formula below, where P(i) = todays returns and P(i-1) = yesterdays returns')
 post_image('daily_return.jpg', 'Daily return formula')
 
 # Choose stock
