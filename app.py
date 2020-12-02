@@ -41,7 +41,7 @@ def hist_norm_curve(y_col):
     p = norm.pdf(x, mu, std)
     # plot normal distribution curve
     plt.plot(x, p, 'k', linewidth=2)
-    title = f'Histogram of Daily Returns for {stock}: mu = %.2f,  std = %.2f' % (mu, std)
+    title = f'Histogram of Daily Returns for {stock}: mu = %.4f,  std = %.4f' % (mu, std)
     plt.title(title)
     st.pyplot()
 
