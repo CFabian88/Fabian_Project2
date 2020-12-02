@@ -28,7 +28,7 @@ def line_graph(y_col):
 # Creates histogram of data 
 def hist_norm_curve(y_col):
     # Plot data as histogram
-    plt.hist(y_col, bins = 10, density = True, color = 'g')
+    plt.hist(y_col, bins = 25, density = True, color = 'g')
     # Create normal standardized values from data
     mu, std = norm.fit(y_col)
     # Find upper and lower bounds of x-axis
