@@ -14,7 +14,7 @@ import math
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # Centers images
-with open("style.css") as f:
+with open('style.css') as f:
     st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
 
 #### FUNCTIONS ####
