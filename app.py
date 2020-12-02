@@ -1,6 +1,6 @@
 import pandas_datareader.data as web
 import matplotlib.pyplot as plt
-from scipy.stats import lognorm
+from scipy.stats import lognorm, norm
 from datetime import date
 import streamlit as st
 import datetime as dt
@@ -14,10 +14,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 #### FUNCTIONS ####
 # Price to get data from Yahoo Finance
-
 def line_graph(y_col):
-    '''x = range(len(y_col) + 1)
-    y = range(int(round(y_col.max(), 0)))'''
     fig = plt.figure()
     ax1 = fig.add_subplot(111)
     ax1.plot(df.index, df['Close'], label=f'Close')
@@ -26,6 +23,24 @@ def line_graph(y_col):
     plt.xticks(rotation = 45)
     plt.ylabel('Price')
     plt.legend(loc='upper left')
+    st.pyplot()
+
+# Creates histogram of data 
+def hist_norm_curve(y_col):
+    # Plot data as histogram
+    plt.hist(y_col, bins = 10, density = True, color = 'g')
+    # Create normal standardized values from data
+    mu, std = norm.fit(y_col)
+    # Find upper and lower bounds of x-axis
+    xmin, xmax = plt.xlim()
+    # Returns 100 values evenly spaced between the upper and 
+    # lower bounds of the x-axis
+    x = np.linspace(xmin, xmax, 100)
+    # Returns pdf values based on mean and std of data
+    p = norm.pdf(x, mu, std)
+    plt.plot(x, p, 'k', linewidth=2)
+    title = 'Histogram of Daily Returns for {stock}: mu = %.2f,  std = %.2f' % (mu, std)
+    plt.title(title)
     st.pyplot()
 
 def make_lognorm_dist(col):
