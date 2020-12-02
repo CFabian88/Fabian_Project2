@@ -1,5 +1,6 @@
 from scipy.stats import lognorm, norm
 import pandas_datareader.data as web
+import plotly.express as px
 import matplotlib.pyplot as plt
 from datetime import date
 import streamlit as st
