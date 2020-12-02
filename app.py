@@ -80,11 +80,12 @@ df = get_data(stock)
 df = df.drop(['Adj Close', 'Volume'], axis = 1)
 
 # Create Daily Returns Column
-df['Daily_return'] = df['Close'] - df['Open']
+df['Returns'] = df['Close'].pct_change(1).dropna()
 st.write(df)
 
 # Create line graph of daily closing prices
 line_graph(df['Close'])
 
 # Histogram of daily returns + fitted normal dist curve
-hist_norm_curve(df['Daily_return'])
+hist_norm_curve(df['Returns'])
+
