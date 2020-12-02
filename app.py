@@ -19,7 +19,12 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 def line_graph(y_col):
     graph = px.line(
         x = df.index, 
-        y = y_col
+        y = y_col,
+        title = f'Closing Prices for {sotck}',
+        labels = {
+            'y' : 'Closing Price ($)', 
+            'x' : 'Date'
+        }
         )
     st.plotly_chart(graph)
 
