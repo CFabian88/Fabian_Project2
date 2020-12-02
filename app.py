@@ -52,7 +52,7 @@ def make_lognorm_dist(col):
 
 def post_image(image, caption = ''):
     image = Image.open(image)
-    st.image(image, caption = caption, use_column_width = True)
+    st.image(image, caption = caption, width = None)
 
 # Title of app
 st.title('Stock Return Analysis')
