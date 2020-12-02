@@ -57,11 +57,13 @@ df = load_data(df)
 st.write(df)
 
 
+x = range(len(df['Close']) + 1)
+y = range(int(round(df['Close'].max(), 0)))
 fig = plt.figure()
 ax1 = fig.add_subplot(111)
-ax1.scatter(df.index, df['Close'], s=10, c='b', marker="s", label='Close')
-plt.title(f'Closing Prices of {stock}')
+ax1.scatter(df.index, df['Close'], s=10, c='b', marker="s", label=f'Close')
+plt.title(f'Closing Daily Prices of {stock}')
 plt.xlabel('Date')
 plt.ylabel('Price')
-plt.legend(loc='upper left');
+plt.legend(loc='upper left')
 plt.show()
