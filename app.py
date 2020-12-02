@@ -77,13 +77,14 @@ def get_data(stock):
 df = get_data(stock)
 
 # Delete unwanted columns
-#df.drop(['Adj_close'], axis = 1)
+df.drop(['Adj Close'], axis = 1)
 
 # Create Daily Returns Column
 df['Daily_return'] = df['Close'] - df['Open']
 st.write(df)
 
-cols = list(df.columns.values)
+# Create line graph of daily closing prices
 line_graph(df['Close'])
 
+# Histogram of daily returns + fitted normal dist curve
 hist_norm_curve(df['Daily_return'])
