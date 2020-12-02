@@ -18,13 +18,11 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 def line_graph(y_col):
     fig = plt.figure()
     ax1 = fig.add_subplot(111)
-    ax1.plot(df.index, df['Close'], label=f'Close')
-    plt.title(f'Closing Daily Prices of {stock}')
-    plt.xlabel('Date')
-    plt.xticks(rotation = 45)
-    plt.ylabel('Price')
-    plt.legend(loc='upper left')
-    st.pyplot()
+    graph = px.line_graph(
+        x = df.index, 
+        y = y_col
+        )
+    st.plotly_chart(graph)
 
 # Creates histogram of data 
 def hist_norm_curve(y_col):
