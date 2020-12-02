@@ -20,7 +20,7 @@ def line_graph(y_col):
     graph = px.line(
         x = df.index, 
         y = y_col,
-        title = f'Closing Prices for {sotck}',
+        title = f'Closing Prices for {stock}',
         labels = {
             'y' : 'Closing Price ($)', 
             'x' : 'Date'
