@@ -73,8 +73,9 @@ except:
 st.write('''
     As we can below, our data consists of daily prices including the daily: 
     open, high, low, close and return. For our return statistic. We are using the 
-    formula below, where P(i) = today\'s closing price and P(i-1) = yesterday\'s 
-    closing price.
+    formula below, where P(i) = the current period\'s closing price and P(i-1) = 
+    the previous period\'s closing price. The formula yields the change in closing 
+    price as a percentage of the previous period\'s price.
     ''')
 
 # IMAGE: daily_returns
