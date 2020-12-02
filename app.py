@@ -1,8 +1,9 @@
+from scipy.stats import lognorm, norm
 import pandas_datareader.data as web
 import matplotlib.pyplot as plt
-from scipy.stats import lognorm, norm
 from datetime import date
 import streamlit as st
+from PIL import Image
 import datetime as dt
 import pandas as pd
 import numpy as np 
@@ -49,15 +50,21 @@ def make_lognorm_dist(col):
     mean = col.mean()
     return lognorm([st_dev],loc = mean)
 
+def post_image(image, caption = ''):
+    image = Image.open(image)
+    st.image(image, caption = caption, use_column_width = True)
+
 # Title of app
-st.title('Stock Neural Networks')
+st.title('Stock Return Analysis')
 
 # First Header
 st.header('Choose stock to analyze.')
+st.write('As we can below, our data consists of daily prices including the daily: open, high, low, close and return. For our return statistic. We are using the formula below, where P(i) = todays returns and P(i-1) = yesterdays returns)
+post_image('daily_return.jpg', 'Daily return formula')
 
 # Choose stock
 try:
-    stock = st.text_input('What stock would you like to create a neural network for? ', 'aapl')
+    stock = st.text_input('What stock would you like to analyze? Enter ticker symbol.', 'aapl')
     stock = stock.upper()
 except:
     st.write('Please choose a valid stock.')
