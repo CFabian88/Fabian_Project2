@@ -1,8 +1,8 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
-from keras.models import Sequential
-from keras.layers import Dense, LSTM
+'''from keras.models import Sequential
+from keras.layers import Dense, LSTM'''
 import pandas_datareader.data as web
 import datetime as dt
 import pandas as pd
@@ -56,3 +56,4 @@ def load_data(df):
     return pd.DataFrame(df)
 
 df = load_data(df)
+st.write(df)
