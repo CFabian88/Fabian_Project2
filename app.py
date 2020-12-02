@@ -77,7 +77,7 @@ def get_data(stock):
 df = get_data(stock)
 
 # Delete unwanted columns
-df.drop(['Adj Close'], axis = 1)
+df.drop(['Adj Close', 'Volume'], axis = 1)
 
 # Create Daily Returns Column
 df['Daily_return'] = df['Close'] - df['Open']
