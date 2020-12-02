@@ -13,10 +13,6 @@ import math
 # Ignore PyPlot Warnings
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-# Centers images
-with open('style.css') as f:
-    st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
-
 #### FUNCTIONS ####
 # Price to get data from Yahoo Finance
 def line_graph(y_col):
