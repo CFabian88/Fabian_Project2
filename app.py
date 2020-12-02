@@ -6,6 +6,7 @@ import datetime as dt
 from datetime import date
 import pandas as pd
 import numpy as np 
+import time
 import math
 
 # Ignore PyPlot Warnings
@@ -44,13 +45,12 @@ stock = stock.upper()
 def get_data(stock):
     stock = str(stock)
     ticker = stock.upper()
-    today = date.today
-    today = today.strftime('%Y-%m-%d')
-    df = web.DataReader(ticker, data_source = 'yahoo', start = '2000-01-01', end = today)
+    current_time = time.strftime('%Y-%m-%d', time.localtime())
+    df = web.DataReader(ticker, data_source = 'yahoo', start = '2000-01-01', end = current_time)
     return pd.DataFrame(df)
 
 df = get_data(stock)
 st.write(df)
 
-choice = st.text_input('Choose Type of Data to Show', df.columns)
-line_graph(df[choice])
+cols = list(df.columns.values)
+line_graph(df['Close'])
