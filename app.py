@@ -85,3 +85,4 @@ st.write(df)
 cols = list(df.columns.values)
 line_graph(df['Close'])
 
+hist_norm_curve(df['Close'])
