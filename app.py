@@ -87,7 +87,8 @@ df = get_data(stock)
 df = df.drop(['Adj Close', 'Volume'], axis = 1)
 
 # Create Daily Returns Column
-df['Returns'] = df['Close'].pct_change().dropna()
+df['Returns'] = df['Close'].pct_change()
+df = df.dropna(axis = 0)
 st.write(df)
 
 # Create line graph of daily closing prices
