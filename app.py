@@ -1,5 +1,6 @@
 import pandas_datareader.data as web
 import matplotlib.pyplot as plt
+from scipy.stats import lognorm
 from datetime import date
 import streamlit as st
 import datetime as dt
@@ -27,6 +28,11 @@ def line_graph(y_col):
     plt.legend(loc='upper left')
     st.pyplot()
 
+def make_lognorm_dist(col):
+    st_dev = col.std()
+    mean = col.mean()
+    return lognorm([st_dev],loc = mean)
+
 # Title of app
 st.title('Stock Neural Networks')
 
@@ -51,10 +57,16 @@ def get_data(stock):
     df = web.DataReader(ticker, data_source = 'yahoo', start = '2000-01-01', end = current_time)
     return pd.DataFrame(df)
 
+# Load data
 df = get_data(stock)
+
+# Delete unwanted columns
+df.drop(['Adj Close'], axis = 1)
+
+# Create Daily Returns Column
+df['Daily_return'] = df['Close'] - df['Open']
 st.write(df)
 
 cols = list(df.columns.values)
 line_graph(df['Close'])
 
-model = load_model('stock_pred.h5')
