@@ -17,8 +17,6 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 #### FUNCTIONS ####
 # Price to get data from Yahoo Finance
 def line_graph(y_col):
-    fig = plt.figure()
-    ax1 = fig.add_subplot(111)
     graph = px.line_graph(
         x = df.index, 
         y = y_col
