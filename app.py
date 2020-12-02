@@ -38,6 +38,7 @@ def hist_norm_curve(y_col):
     x = np.linspace(xmin, xmax, 100)
     # Returns pdf values based on mean and std of data
     p = norm.pdf(x, mu, std)
+    # plot normal distribution curve
     plt.plot(x, p, 'k', linewidth=2)
     title = 'Histogram of Daily Returns for {stock}: mu = %.2f,  std = %.2f' % (mu, std)
     plt.title(title)
