@@ -50,9 +50,9 @@ def make_lognorm_dist(col):
     mean = col.mean()
     return lognorm([st_dev],loc = mean)
 
-def post_image(image, caption = ''):
+def post_image(image, caption = '', width = None):
     image = Image.open(image)
-    st.image(image, caption = caption, width = None)
+    st.image(image, caption = caption, width = width)
 
 # Title of app
 st.title('Stock Return Analysis')
