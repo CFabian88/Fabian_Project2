@@ -1,8 +1,6 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
-'''from keras.models import Sequential
-from keras.layers import Dense, LSTM'''
 import pandas_datareader.data as web
 import datetime as dt
 import pandas as pd
@@ -57,3 +55,13 @@ def load_data(df):
 
 df = load_data(df)
 st.write(df)
+
+
+fig = plt.figure()
+ax1 = fig.add_subplot(111)
+ax1.scatter(df.index, df['Close'], s=10, c='b', marker="s", label='Close')
+plt.title(f'Closing Prices of {stock}')
+plt.xlabel('Date')
+plt.ylabel('Price')
+plt.legend(loc='upper left');
+plt.show()
