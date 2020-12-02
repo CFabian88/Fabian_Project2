@@ -32,11 +32,14 @@ def line_graph(y_col):
 st.title('Stock Neural Networks')
 
 # First Header
-st.header('Choose stock and dates to analyze.')
+st.header('Choose stock to analyze.')
 
 # Choose stock
-stock = st.text_input('What stock would you like to create a neural network for? ', 'aapl')
-stock = stock.upper()
+try:
+    stock = st.text_input('What stock would you like to create a neural network for? ', 'aapl')
+    stock = stock.upper()
+except:
+    st.write('Please choose a valid stock.')
 
 
 # Used as a command to improve processing speed
