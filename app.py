@@ -40,7 +40,7 @@ def hist_norm_curve(y_col):
     p = norm.pdf(x, mu, std)
     # plot normal distribution curve
     plt.plot(x, p, 'k', linewidth=2)
-    title = 'Histogram of Daily Returns for {stock}: mu = %.2f,  std = %.2f' % (mu, std)
+    title = 'Histogram of Daily Closing Prices for {stock}: mu = %.2f,  std = %.2f' % (mu, std)
     plt.title(title)
     st.pyplot()
 
@@ -77,7 +77,7 @@ def get_data(stock):
 df = get_data(stock)
 
 # Delete unwanted columns
-df.drop(['Adj Close'], axis = 1)
+df.drop(['Adj_Close'], axis = 1)
 
 # Create Daily Returns Column
 df['Daily_return'] = df['Close'] - df['Open']
@@ -86,4 +86,4 @@ st.write(df)
 cols = list(df.columns.values)
 line_graph(df['Close'])
 
-hist_norm_curve(df['Close'])
+hist_norm_curve(df['Daily_return'])
