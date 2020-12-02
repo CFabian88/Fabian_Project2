@@ -1,9 +1,8 @@
-from keras.models import load_model
-import streamlit as st
-import matplotlib.pyplot as plt
 import pandas_datareader.data as web
-import datetime as dt
+import matplotlib.pyplot as plt
 from datetime import date
+import streamlit as st
+import datetime as dt
 import pandas as pd
 import numpy as np 
 import time
