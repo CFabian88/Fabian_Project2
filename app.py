@@ -134,6 +134,7 @@ st.header('Data Observables')
 st.write('''
 Lets calculate some main statistics for our data.
 ''')
+make_summary_table(df['Returns'])
 st.write('''
 The first thing to do is compare our mean and median. If our median is greater than 
 our mean, then we know that our data is left-skewed which means that there are more 
@@ -156,9 +157,8 @@ Lastly, we will look at the statistic Kurtosis. Kurtosis is a measure of how muc
 tails of the data differ from that of a normal distribution. Kurtosis values can be any
 real positive or negative number. The smaller a kurtosis value is, the more \'Platykurtic\'
 the distribution is. A Platykurtic Distribution is one that looks shorter and wider than
-a normal distribution. The larger a kurtosis value is, the \'Leptokurtic\' the distribution 
+a normal distribution. The larger a kurtosis value is, the more \'Leptokurtic\' the distribution 
 is. A Leptokurtic Distribution is one that looks taller and skinnier than a normal
 distribution.
 ''')
-make_summary_table(df['Returns'])
 
