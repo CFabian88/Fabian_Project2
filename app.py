@@ -1,4 +1,5 @@
 from scipy.stats import lognorm, norm, skew, kurtosis, skewtest, kurtosistest
+from statsmodels.graphics.tsaplots import plot_pacf
 import pandas_datareader.data as web
 import plotly.express as px
 import matplotlib.pyplot as plt
@@ -295,9 +296,9 @@ post_image('pics/brownian_motion.jpg', caption = 'Brownian Motion Example')
 st.header('Volatility')
 st.write('''
 As we saw above, the Brownian Motion can change quite drastically with changes in
-volatility. So, it would be useful to know if our data's volitility has varied 
-throughout time. Lets look at the standard deviation of our returns as function of 
-time.
+volatility. So, if we want to try and predict future stock prices using this model, 
+it would be useful to know if our data's volitility has varied throughout time. Lets 
+look at the standard deviation of our returns as a function of time.
 ''')
 line_graph(
     df['Returns'], 
@@ -305,9 +306,9 @@ line_graph(
     x_label = 'Time'
 )
 st.write('''
-If there are points in the graph where the data looks nonsequential, then that means
-our data's volatility varies throughout time. This phenomenon is known as volatility
-clustering, and it is very common throughout the stock market.
+As we can see, the data is nonsequential the entire time and our data's volatility is 
+clearly varying throughout time. This phenomenon is known as volatility clustering, 
+and it is very common throughout the stock market.
 ''')
 st.write('''
 Because the volatility of a stock price can change so rapidly, it is hard to gain an
@@ -320,3 +321,4 @@ constant. This will drastically smooth our plot from above.
 ''')
 rolling_line_graph(df['Returns'], roll_per = 15)
 
+plot_pacf()
