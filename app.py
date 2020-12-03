@@ -67,8 +67,9 @@ def make_summary_table(y_col):
         'Median' : np.quantile(y_col, 0.5),
         'Std' : np.std(y_col),
         'Skew' : skew(y_col)
+        'Kurtosis' : kurtosis(y_col)
     }
-    dat = pd.DataFrame(stat_dict, index = [0])
+    dat = pd.DataFrame(stat_dict, index = [f'{stock}'])
     st.table(dat)
 
 
@@ -134,3 +135,4 @@ st.write('''
 Lets calculate some main statistics for our data. First lets look at the mean.
 ''')
 make_summary_table(df['Returns'])
+
