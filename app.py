@@ -179,6 +179,7 @@ st.write('''
 Next, we will run a skew test with the following hypotheses:
 ''')
 post_image('pics/skew_test_hypoth.jpg')
+skew_test(df['Returns'])
 st.write('''
 For all hypothesis tests we will be using 0.05 for our alpha threshold. This means that
 if the p-value is less than 0.05, we will reject the null hypothesis and accept the
@@ -189,4 +190,3 @@ is normally distributed, and accept the alternative which states that the data i
 normally distributed. And if the p-value is greater than or equal to 0.05, then we will
 accept the conclusion that the data is normally distributed.
 ''')
-skew_test(df['Returns'])
