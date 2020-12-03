@@ -139,22 +139,22 @@ Lets calculate some main statistics for our data.
 make_summary_table(df['Returns'])
 st.write('''
 The first thing to do is compare our mean and median. If our median is greater than 
-our mean, then we know that our data is left-skewed which means that there are more 
-data points above the mean than below. But, this also means that there are extreme
+our mean, then we know that our data is left(negative)-skewed which means that there 
+are more data points above the mean than below. But, this also means that there are extreme
 values on the lower end of the data that are pulling the mean value down. On the other
-hand, if our median is less than our mean, then we know that our data is right-skewed
+hand, if our median is less than our mean, then we know that our data is right(positive)-skewed
 which means that there are more data points below the mean than above. But, this also
 means that there are extreme values on the upper end of the data that are pulling the
 mean higher. The greater the difference between the mean and median, the greater the
-skewness. Below is an image showing examples of all three. For reference, Positive-skew 
-equals right-skew and negative-skew equals left-skew.
+skewness. Below is an image showing examples of all three.
 ''')
 post_image('skew.jpg', caption = 'Examples of skewness')
 st.write('''
 Another statistic to evaluate is Skew, which is a measurement of the symmetry of our 
 data. Skew has a range of all real postive and negative numbers. The smaller the statistic,
 the more left-skewed the data is and the greater the statistic the more right-skewed
-the data is. A perfectly symmetrical distribution will have a skew value of 0.
+the data is. A perfectly symmetrical distribution will have a skew value of 0. Refer to
+the \"Examples of skewness\" image above for examples.
 ''')
 st.write('''
 Lastly, we will look at the statistic Kurtosis. Kurtosis is a measure of how much the
