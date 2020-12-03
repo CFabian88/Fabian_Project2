@@ -10,6 +10,7 @@ import pandas as pd
 import numpy as np 
 import time
 import math
+import os
 
 # Ignore PyPlot Warnings
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -58,8 +59,10 @@ def make_lognorm_dist(col):
     return lognorm([st_dev],loc = mean)
 
 def post_image(image, caption = '', width = None):
+    os.chdir('/Users/fabian_coll/Desktop/MA346/Projects/2/Project2/pics')
     image = Image.open(image)
     st.image(image, caption = caption, width = width)
+    os.chdir('/Users/fabian_coll/Desktop/MA346/Projects/2/Project2')
 
 def make_summary_table(y_col):
     stat_dict = {
