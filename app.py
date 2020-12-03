@@ -163,6 +163,6 @@ real positive or negative number. The smaller a kurtosis value is, the more \'Pl
 the distribution is. A Platykurtic Distribution is one that looks shorter and wider than
 a normal distribution. The larger a kurtosis value is, the more \'Leptokurtic\' the distribution 
 is. A Leptokurtic Distribution is one that looks taller and skinnier than a normal
-distribution.
+distribution. Examples of these distributions can be seen below.
 ''')
-
+post_image('kurtosis.jpg', 'Examples of kurtosis')
