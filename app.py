@@ -318,7 +318,7 @@ understanding of any patterns that may be present. In order to smooth this data 
 get a better understanding of the behavior of the price's volatility, we can use the 
 15-day rolling standard deviation. Instead of calculating volatility using all previous
 data points and constantly changing our time value, we calculate volatility using only
-the previous 20 data points. This way, the time variable in our calculation will remain
+the previous 15 data points. This way, the time variable in our calculation will remain
 constant. This will drastically smooth our plot from above.
 ''')
 rolling_line_graph(df['Returns'], roll_per = 15)
