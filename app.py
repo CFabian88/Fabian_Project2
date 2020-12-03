@@ -159,9 +159,9 @@ the \"Examples of skewness\" image above for examples.
 st.write('''
 Lastly, we will look at the statistic Kurtosis. Kurtosis is a measure of how much the
 tails of the data differ from that of a normal distribution. Kurtosis values can be any
-real positive or negative number. The smaller a kurtosis value is, the more \'Platykurtic\'
+real positive or negative number. The smaller a kurtosis value is, the more Platykurtic
 the distribution is. A Platykurtic Distribution is one that looks shorter and wider than
-a normal distribution. The larger a kurtosis value is, the more \'Leptokurtic\' the distribution 
+a normal distribution. The larger a kurtosis value is, the more Leptokurtic the distribution 
 is. A Leptokurtic Distribution is one that looks taller and skinnier than a normal
 distribution. Examples of these distributions can be seen below.
 ''')
