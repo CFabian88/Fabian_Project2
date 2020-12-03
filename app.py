@@ -86,7 +86,8 @@ st.header('Choose stock to analyze.')
 try:
     stock = st.text_input(
         'What stock would you like to analyze? Enter ticker symbol.', 
-        'aapl')
+        'aapl'
+        )
     stock = stock.upper()
 except:
     st.write('Please choose a valid stock.')
