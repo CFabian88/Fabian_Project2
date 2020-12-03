@@ -9,6 +9,7 @@ from PIL import Image
 import datetime as dt
 import pandas as pd
 import numpy as np 
+import requests
 import time
 import math
 import os
@@ -17,6 +18,16 @@ import os
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 #### FUNCTIONS ####
+# returns Company name of given ticker symbol
+def get_company(symbol):
+    url = "http://d.yimg.com/autoc.finance.yahoo.com/autoc?query={}&region=1&lang=en".format(symbol)
+
+    result = requests.get(url).json()
+
+    for x in result['ResultSet']['Result']:
+        if x['symbol'] == symbol:
+            return x['name']
+
 # Price to get data from Yahoo Finance
 def line_graph(y_col, y_label = '', x_label = '', title = ''):
     graph = px.line(
@@ -57,7 +68,7 @@ def hist_norm_curve(y_col):
     p = norm.pdf(x, mu, std)
     # plot normal distribution curve
     plt.plot(x, p, 'k', linewidth=2)
-    title = f'Histogram of Daily Returns for {stock}'
+    title = f'Histogram of Daily Returns for {company}'
     plt.title(title)
     st.pyplot()
 
@@ -144,6 +155,7 @@ try:
         'aapl'
         )
     stock = stock.upper()
+    company = get_company(stock)
 except:
     st.write('Please choose a valid stock.')
 
@@ -185,7 +197,7 @@ line_graph(
     df['Close'], 
     y_label = 'Closing Price ($)', 
     x_label = 'Time',
-    title = f'Closing Prices for {stock}'
+    title = f'Closing Prices for {company}'
     )
 
 # Histogram of daily returns + fitted normal dist curve
@@ -266,7 +278,7 @@ tests. QQ (Quantile-Quantile) Plots give us a visual confirmation for these test
 are plots that show a datasets quantile values versus the theoretical quantile values 
 of the same data if it were normally distributed. Lets take a look. 
 ''')
-qq_plot(df['Returns'], title = f'QQ-Plot of {stock}')
+qq_plot(df['Returns'], title = f'QQ-Plot of {company}')
 st.write('''
 If our data set is normally distributed, then the line for our sample data will be very
 similar to the line y=x. This is because our y-variable is the theoretical quantiles of
@@ -311,7 +323,7 @@ line_graph(
     df['Returns'], 
     y_label = 'Returns (%)',
     x_label = 'Time',
-    title = f'Time Series Data of Returns for {stock}'
+    title = f'Time Series Data of Returns for {company}'
 )
 st.write('''
 As we can see, the data is nonsequential the entire time and our data's volatility is 
@@ -373,7 +385,7 @@ it is ill-advised to use an AMIRA model.
 
 make_pacf_plot(
     df['Returns'], 
-    title = f'Partial Autocorrelation Function for {stock}',
+    title = f'Partial Autocorrelation Function for {company}',
     y_label= f'Correlation',
     x_label= f'Lag #'
 )
