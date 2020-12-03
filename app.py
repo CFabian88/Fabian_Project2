@@ -135,7 +135,19 @@ def kurtosis_test(y_col):
 # Title of app
 st.title('Stock Return Analysis')
 
-# First Header
+# Intro Header
+st.header('Overview')
+
+# Overview Message
+st.write('''
+This dashboard is designed to evaluate whether a stock's data is appropriate for using
+an autoregressive integrated moving average (ARIMA) model as a predictor for future stock
+price. In order for an ARIMA model to be useful, data points must be correlated 
+with one another. In this analysis, we will analyze the data, study the characteristics
+of it's distribution and make a decision on whether an ARIMA model will be effective or not.
+''')
+
+# Stock Header
 st.header('Choose stock to analyze.')
 
 # Choose stock
@@ -363,12 +375,12 @@ are considered significant. The line at lag 1 is a sanity checker for our plot b
 represents the correlation between today's stock price and itself, so it should always be
 equal to 1. Every lag after that represent each day backwards. So, lag 20 represents the
 correlation between the stock price 20 days ago and now. In order to choose which points
-we want for our AMIRA model, we must go lag to lag in order. When we eventually reach one
+we want for our ARIMA model, we must go lag to lag in order. When we eventually reach one
 that does not extend beyond the blue area (meaning it is insignificant), we stop and take
 all data points from the previous lags. For example, if the first and second lags extend
 beyond the blue area but the third lag does not, then we use the data points
-from lag 1 and lag 2 in our AMIRA model. However, if the second lag is insignificant, then
-it is ill-advised to use an AMIRA model.
+from lag 1 and lag 2 in our ARIMA model. However, if the second lag is insignificant, then
+it is ill-advised to use an ARIMA model.
 ''')
 
 make_pacf_plot(
@@ -379,8 +391,8 @@ make_pacf_plot(
 )
 
 st.write('''
-Thank you for reading my AMIRA model. At the end of this I hope that you are able to 
-enter any stock and quickly analyze if an AMIRA model is appropriate for predicting
+Thank you for reading my ARIMA model. At the end of this I hope that you are able to 
+enter any stock and quickly analyze if an ARIMA model is appropriate for predicting
 future stock price behavior. I also hope that you were able to learn something new
 along the way.
 ''')
