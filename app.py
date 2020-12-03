@@ -142,9 +142,12 @@ st.header('Overview')
 st.write('''
 This dashboard is designed to evaluate whether a stock's data is appropriate for using
 an autoregressive integrated moving average (ARIMA) model as a predictor for future stock
-price. In order for an ARIMA model to be useful, data points must be correlated 
-with one another. In this analysis, we will analyze the data, study the characteristics
-of it's distribution and make a decision on whether an ARIMA model will be effective or not.
+price. An ARIMA model is a gneralization of an autoregressive moving average model. 
+Both of which are models that are fitted to time setries data to help predict future 
+points. In order for an ARIMA model to be useful, data points must be correlated with 
+one another. In this analysis we will analyze the data, study the characteristics
+of it's distribution and make a decision on whether an ARIMA model will be effective 
+or not.
 ''')
 
 # Stock Header
@@ -162,7 +165,7 @@ stock = stock.upper()
 # DESCRIP: data
 st.write('''
     As we can below, our data consists of daily prices including the daily: 
-    open, high, low, close and return. For our return statistic. We are using the 
+    open, high, low, close and return. For our \'return\' statistic. We are using the 
     formula below, where P(i) = the current period\'s closing price and P(i-1) = 
     the previous period\'s closing price. The formula yields the change in closing 
     price as a percentage of the previous period\'s price.
