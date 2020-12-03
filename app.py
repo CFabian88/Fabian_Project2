@@ -272,6 +272,9 @@ Below is an example of various Brownian Motion models, all with varying variance
 and a mean value of 1. The graph shows how the model can change as the variance of the 
 data does.
 ''')
-post_image('pics/brownian_motion.jpg')
+post_image('pics/brownian_motion.jpg', caption = 'Brownian Motion Example')
 
 st.header('Volatility')
+st.write('''
+As we saw above, 
+''')
