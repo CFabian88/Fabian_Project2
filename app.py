@@ -24,7 +24,19 @@ def line_graph(y_col):
         title = f'Closing Prices for {stock}',
         labels = {
             'y' : 'Closing Price ($)', 
-            'x' : 'Date'
+            'x' : 'Time'
+        }
+        )
+    st.plotly_chart(graph)
+
+def rolling_line_graph(y_col, roll_per = 20):
+    graph = px.line(
+        x = df.index, 
+        y = y_col.rolling(roll_per).std(),
+        title = f'{roll_per}-Days Rolling Standard Deviation of Returns',
+        labels = {
+                'y' : f'Standard Deviation', 
+                'x' : 'Time'
         }
         )
     st.plotly_chart(graph)
@@ -276,5 +288,23 @@ post_image('pics/brownian_motion.jpg', caption = 'Brownian Motion Example')
 
 st.header('Volatility')
 st.write('''
-As we saw above, 
+As we saw above, the Brownian Motion can change quite drastically with changes in
+volatility. So, it would be useful to know if our data's volitility has varied 
+throughout time. Lets look at our returns as function of time.
 ''')
+line_graph(df['Returns'])
+st.write('''
+If there are points in the graph where the data looks nonsequential, then that means
+our data's volatility varies throughout time. This phenomenon is known as volatility
+clustering, and it is very common throughout the stock market.
+''')
+st.write('''
+Because the volatility of a stock price can change so rapidly, it is hard to gain an
+understanding of any patterns that may be present. In order to smooth this data and 
+get a better understanding of the behavior of the price's volatility, we can use the 
+15-day rolling standard deviation. Instead of calculating volatility using all previous
+data points and constantly changing our time value, we calculate volatility using only
+the previous 20 data points. This way, the time variable in our calculation will remain
+constant. This will drastically smooth our plot from above.
+''')
+rolling_line_graph(df['Returns'], roll_per = 15)
