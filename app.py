@@ -144,8 +144,10 @@ hand, if our median is less than our mean, then we know that our data is right-s
 which means that there are more data points below the mean than above. But, this also
 means that there are extreme values on the upper end of the data that are pulling the
 mean higher. The greater the difference between the mean and median, the greater the
-skewness.
+skewness. Below is an image showing examples of all three. For reference, Positive-skew 
+equals right-skew and negative-skew equals left-skew.
 ''')
+post_image('skew.jpg', caption = 'Examples of skewness')
 st.write('''
 Another statistic to evaluate is Skew, which is a measurement of the symmetry of our 
 data. Skew has a range of all real postive and negative numbers. The smaller the statistic,
