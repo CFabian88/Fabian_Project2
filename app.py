@@ -321,4 +321,4 @@ constant. This will drastically smooth our plot from above.
 ''')
 rolling_line_graph(df['Returns'], roll_per = 15)
 
-plot_pacf()
+plot_pacf(df['Returns'], lags = 20)
