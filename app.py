@@ -238,8 +238,9 @@ accept the null hypothesis that our data is indeed normally distributed.
 st.header('QQ-Plot')
 st.write('''
 Although we can tell a lot about a dataset's distribution based on our skew and kurtosis
-tests. However, a QQ (Quantile-Quantile) Plots are plots that show a datasets quantile 
-values versus those quantile values of a normal distribution. Lets take a look. 
+tests. QQ (Quantile-Quantile) Plots give us a visual confirmation for these tests. They 
+are plots that show a datasets quantile values versus the theoretical quantile values 
+of the same data if it were normally distributed. Lets take a look. 
 ''')
 qq_plot(df['Returns'], title = f'QQ-Plot of {stock}')
 st.write('''
