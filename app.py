@@ -66,6 +66,12 @@ def boxplot(y_col, label = '', title = ''):
     plt.title(title)
     st.pyplot()
 
+def make_pacf_plot(y_col, title = '', y_label = '', x_label = '', lags = 20):
+    plot_pacf(y_col, lags = lags)
+    plt.title(title)
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    st.pyplot()
 
 def qq_plot(y_col, title = ''):
     # Create set of 1000 numbers equally spaced betweed 0.01 and 0.99
@@ -330,9 +336,31 @@ the extreme outliers in the data set. Because these points are so influential to
 we cannot neglect these outliers when producing a model. 
 ''')
 
-st.header('Partial Autocorrelation Function')
+st.header('Partial Autocorrelation Function (PACF)')
 st.write('''
-
+Now, we can use our partial autocorrelation function to see if there is any correlation
+between observations at two time spots given that we consider both observation are
+correlated to observations at other time spots. For example, the stock price today
+can be correlated to the day before yesterday, and yesterday can also be correlated to
+the day before yesterday. If this is the case, then the partial autocorrelation function
+of yesterday is the \"real\" correlation between today and yesterday after taking out
+the influence of the day before.
 ''')
-plot_pacf(df['Returns'], lags = 20)
-st.pyplot()
+st.write('''
+You may be asking yourself what that even means and why anyone would care about this.
+Well, the reason why PACF is so widely used in predicting stock prices, is because it
+allows us to get a measurement of correlation between today's and yesterday's stock
+price without the influence of the day before yesterday's correlation. In this way,
+calculating the PACF is the only way to understand the \"real\" correlation between
+today's and yesterday's prices because we are removing the influence from previous days.
+''')
+st.write('''
+In order to visualize this, we will plot our PACF function below. 
+''')
+
+make_pacf_plot(
+    df['Returns'], 
+    title = f'Partial Autocorrelation for {stock}',
+    y_label= f'P-value',
+    x_label= f'Lag #'
+)
