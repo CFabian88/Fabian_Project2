@@ -250,3 +250,28 @@ our data set if it was truly normally distributed and our x-variable are what ou
 quantiles actually are. Therefore, if we want our data to be normally distributed, we would
 want our 'x' and 'y' values to be the same for each coordinate.
 ''')
+st.write('''
+Generally, it is very rare to find a stock whose returns are normally distributed. If 
+you find that your data is not normally distributed, then we can only use stochastic
+models as an approximation for future returns.
+''')
+st.write('''
+So, what do we mean when we say stochastic? In short, a stochastic model is any model
+that describes the evolution in time of a random phenomenon. Even though the stock market
+is not random and is affected by real world events, these factors are so numerous and 
+complex that when we attempt to model them, we are better off treating them like 
+random phenomena.
+''')
+st.write('''
+One example of a common stochastic process used in finance is the Geometric Brownian
+Motion model. The Brownian Motion, often called the Wiener Process, is simply just the
+calculated, random movement of a thing given the mean and standard deviation of that 
+thing. In this case, we are refering to stock prices. Due to it's ability to account 
+for randomness, it is easy to see why it is such a common tool in the finance industry.
+Below is an example of various Brownian Motion models, all with varying variances 
+and a mean value of 1. The graph shows how the model can change as the variance of the 
+data does.
+''')
+post_image('pics/brownian_motion.jpg')
+
+st.header('Volatility')
