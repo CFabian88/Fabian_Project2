@@ -43,7 +43,7 @@ def hist_norm_curve(y_col):
     p = norm.pdf(x, mu, std)
     # plot normal distribution curve
     plt.plot(x, p, 'k', linewidth=2)
-    title = f'Histogram of Daily Returns for {stock}: mu = %.4f,  std = %.4f' % (mu, std)
+    title = f'Histogram of Daily Returns for {stock}'
     plt.title(title)
     st.pyplot()
 
@@ -132,7 +132,33 @@ boxplot(df['Returns'], 'Returns', 'Boxplot of Daily Returns')
 
 st.header('Data Observables')
 st.write('''
-Lets calculate some main statistics for our data. First lets look at the mean.
+Lets calculate some main statistics for our data.
+''')
+st.write('''
+The first thing to do is compare our mean and median. If our median is greater than 
+our mean, then we know that our data is left-skewed which means that there are more 
+data points above the mean than below. But, this also means that there are extreme
+values on the lower end of the data that are pulling the mean value down. On the other
+hand, if our median is less than our mean, then we know that our data is right-skewed
+which means that there are more data points below the mean than above. But, this also
+means that there are extreme values on the upper end of the data that are pulling the
+mean higher. The greater the difference between the mean and median, the greater the
+skewness.
+''')
+st.write('''
+Another statistic to evaluate is Skew, which is a measurement of the symmetry of our 
+data. Skew has a range of all real postive and negative numbers. The smaller the statistic,
+the more left-skewed the data is and the greater the statistic the more right-skewed
+the data is. A perfectly symmetrical distribution will have a skew value of 0.
+''')
+st.write('''
+Lastly, we will look at the statistic Kurtosis. Kurtosis is a measure of how much the
+tails of the data differ from that of a normal distribution. Kurtosis values can be any
+real positive or negative number. The smaller a kurtosis value is, the more \'Platykurtic\'
+the distribution is. A Platykurtic Distribution is one that looks shorter and wider than
+a normal distribution. The larger a kurtosis value is, the \'Leptokurtic\' the distribution 
+is. A Leptokurtic Distribution is one that looks taller and skinnier than a normal
+distribution.
 ''')
 make_summary_table(df['Returns'])
 
