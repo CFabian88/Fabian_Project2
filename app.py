@@ -73,6 +73,14 @@ def make_summary_table(y_col):
     dat = pd.DataFrame(stat_dict, index = [f'{stock}'])
     st.table(dat)
 
+def skew_test(y_col):
+    stat, p_val = skewtest(y_col)
+    stat_dict = {
+        'Test Statistic' : stat,
+        'P-Value' : p_val
+    }
+    dat = pd.DataFrame(stat_dict, index = [f'{stock}'])
+    st.table(dat)
 
 # Title of app
 st.title('Stock Return Analysis')
@@ -166,3 +174,8 @@ is. A Leptokurtic Distribution is one that looks taller and skinnier than a norm
 distribution. Please refer to the \"Examples of kurtosis\" image below for examples.
 ''')
 post_image('kurtosis.jpg', 'Examples of kurtosis')
+
+st.write('''
+Next, we will run a skew test.
+''')
+skew_test(df['Returns'])
