@@ -158,15 +158,14 @@ st.title('Stock Return Analysis')
 st.header('Choose stock to analyze.')
 
 # Choose stock
-try:
-    stock = st.selectbox(
-        'What stock would you like to analyze? Enter ticker symbol.', 
-        df.keys()
-        )
-    stock = stock.upper()
-    company = get_company(stock)
-except:
-    st.write('Please choose a valid stock.')
+
+stock = st.selectbox(
+    'What stock would you like to analyze? Enter ticker symbol.', 
+    df.keys()
+    )
+stock = stock.upper()
+company = get_company(stock)
+
 
 # DESCRIP: data
 st.write('''
