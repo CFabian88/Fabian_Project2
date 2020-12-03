@@ -61,6 +61,17 @@ def post_image(image, caption = '', width = None):
     image = Image.open(image)
     st.image(image, caption = caption, width = width)
 
+def make_summary_table(y_col):
+    stat_dict = {
+        'Mean' : np.mean(y_col),
+        'Median' : np.quantile(y_col, 0.5),
+        'Std' : np.std(y_col),
+        'Skew' : skew(y_col)
+    }
+    dat = pd.DataFrame.from_dict(stat_dict, columns = stat_dict.keys())
+    st.table(dat, )
+
+
 # Title of app
 st.title('Stock Return Analysis')
 
@@ -117,3 +128,9 @@ hist_norm_curve(df['Returns'])
 
 # Box plot of returns
 boxplot(df['Returns'], 'Returns', 'Boxplot of Daily Returns')
+
+st.header('Data Observables')
+st.write('''
+Lets calculate some main statistics for our data. First lets look at the mean.
+''')
+make_summary_table(df['Returns'])
