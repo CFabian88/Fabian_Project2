@@ -66,7 +66,7 @@ def make_summary_table(y_col):
         'Mean' : np.mean(y_col),
         'Median' : np.quantile(y_col, 0.5),
         'Std' : np.std(y_col),
-        'Skew' : skew(y_col)
+        'Skew' : skew(y_col),
         'Kurtosis' : kurtosis(y_col)
     }
     dat = pd.DataFrame(stat_dict, index = [f'{stock}'])
