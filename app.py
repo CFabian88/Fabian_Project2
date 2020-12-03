@@ -178,5 +178,11 @@ post_image('kurtosis.jpg', 'Examples of kurtosis')
 st.write('''
 Next, we will run a skew test with the following hypotheses:
 ''')
-post_image('skew_test_hypoth.jpg')
+post_image('pics/skew_test_hypoth.jpg')
+st.write('''
+For all hypothesis tests we will be using 0.05 for our alpha threshold. This means that
+if the p-value is less than 0.05, we will reject the null hypothesis and accept the
+alternative one as true. If the p-value is greater than or equal to 0.05, we will NOT
+reject the null hypothesis and will continue to accept it as true.
+''')
 skew_test(df['Returns'])
