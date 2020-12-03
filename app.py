@@ -82,6 +82,15 @@ def skew_test(y_col):
     dat = pd.DataFrame(stat_dict, index = [f'{stock}'])
     st.table(dat)
 
+def kurtosis_test(y_col):
+    stat, p_val = kurtosistest(y_col)
+    stat_dict = {
+        'Test Statistic' : stat,
+        'P-Value' : p_val
+    }
+    dat = pd.DataFrame(stat_dict, index = [f'{stock}'])
+    st.table(dat)
+
 # Title of app
 st.title('Stock Return Analysis')
 
@@ -189,4 +198,17 @@ p-value is less than 0.05, then we will reject the null hypothesis that says the
 is symmetrical, and accept the alternative which states that the data is NOT
 symmetrical. And if the p-value is greater than or equal to 0.05, then we will
 accept the conclusion that the data is symmetrical.
+''')
+
+st.write('''
+Now that we know if our data is skewed or not, we can now test if our data is normally
+distributed or not. For this we will run a kurtosis test with the following hypotheses:
+''')
+post_image('pics/kurtosis_test_hypoth.jpg')
+kurtosis_test(df['Returns'])
+st.write('''
+If the p-value is less than 0.05, then we can reject the null hypothesis that states the
+data is normally distributed and accept the alternative that says the data is NOT normally
+distributed. If the p-value is greater than or equal to 0.05, then we can continue to
+accept the null hypothesis that our data is indeed normally distributed.
 ''')
