@@ -316,12 +316,12 @@ st.write('''
 Because the volatility of a stock price can change so rapidly, it is hard to gain an
 understanding of any patterns that may be present. In order to smooth this data and 
 get a better understanding of the behavior of the price's volatility, we can use the 
-15-day rolling standard deviation. Instead of calculating volatility using all previous
-data points and constantly changing our time value, we calculate volatility using only
-the previous 15 data points. This way, the time variable in our calculation will remain
+30-day rolling standard deviation. Instead of calculating volatility using all previous
+data points and constantly changing our time interval, we calculate volatility using only
+the previous 30 data points. This way, the time variable in our calculation will remain
 constant. This will drastically smooth our plot from above.
 ''')
-rolling_line_graph(df['Returns'], roll_per = 15)
+rolling_line_graph(df['Returns'], roll_per = 30)
 st.write('''
 As we can see, our suspicions about the volatility varying throughout time are true.
 It is certainly not a constant value by any means. In fact, we see quite a bit of spikeage
