@@ -201,7 +201,9 @@ line_graph(
 # Histogram of daily returns + fitted normal dist curve
 hist_norm_curve(df['Returns'])
 
-st.write('We can see above that the distribution of our daily returns is relatively normal')
+st.write('''We can see above that the distribution of our daily returns is relatively 
+normal. However, we can see that the tails of the data extend very far out. This is 
+an indicator of very extreme outliers.''')
 
 # Box plot of returns
 boxplot(df['Returns'], 'Returns', 'Boxplot of Daily Returns')
