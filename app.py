@@ -262,17 +262,19 @@ qq_plot(df['Returns'], title = f'QQ-Plot of {stock}')
 st.write('''
 If our data set is normally distributed, then the line for our sample data will be very
 similar to the line y=x. This is because our y-variable is the theoretical quantiles of
-our data set if it was truly normally distributed and our x-variable are what our dataset's
+our data set if it was truly normally distributed and our x-variable is what our dataset's
 quantiles actually are. Therefore, if we want our data to be normally distributed, we would
-want our 'x' and 'y' values to be the same for each coordinate.
+want our 'x' and 'y' values to be the same for each coordinate. Hence why we want the line
+to match that of y=x.
 ''')
 st.write('''
 Generally, it is very rare to find a stock whose returns are normally distributed. If 
 you find that your data is not normally distributed, then we can only use stochastic
-models as an approximation for future returns.
+models as an approximation for future returns because they take the assumption that data
+is distributed normally.
 ''')
 st.write('''
-So, what do we mean when we say stochastic? In short, a stochastic model is any model
+But what do we mean when we say a stochastic model? In short, a stochastic model is any model
 that describes the evolution in time of a random phenomenon. Even though the stock market
 is not random and is affected by real world events, these factors are so numerous and 
 complex that when we attempt to model them, we are better off treating them like 
@@ -294,7 +296,8 @@ st.header('Volatility')
 st.write('''
 As we saw above, the Brownian Motion can change quite drastically with changes in
 volatility. So, it would be useful to know if our data's volitility has varied 
-throughout time. Lets look at our returns as function of time.
+throughout time. Lets look at the standard deviation of our returns as function of 
+time.
 ''')
 line_graph(
     df['Returns'], 
@@ -316,3 +319,4 @@ the previous 20 data points. This way, the time variable in our calculation will
 constant. This will drastically smooth our plot from above.
 ''')
 rolling_line_graph(df['Returns'], roll_per = 15)
+
