@@ -352,10 +352,23 @@ Well, the reason why PACF is so widely used in predicting stock prices, is becau
 allows us to get a measurement of correlation between today's and yesterday's stock
 price without the influence of the day before yesterday's correlation. In this way,
 calculating the PACF is the only way to understand the \"real\" correlation between
-today's and yesterday's prices because we are removing the influence from previous days.
+today's and yesterday's prices because we are removing the influence from previous days. 
+By doing so, we can determine which data points we should use in our ARIMA model.
 ''')
 st.write('''
-In order to visualize this, we will plot our PACF function below. 
+In order to visualize this, we will plot our PACF function below. On the graph, each
+vertical line represents the partial autocorrelation for that point. You will also notice
+a blue area around the x-axis. Only the PACF points that extend past the shaded blue area
+are considered significant. The line at lag 1 is a sanity checker for our plot because it
+represents the correlation between today's stock price and itself, so it should always be
+equal to 1. Every lag after that represent each day backwards. So, lag 20 represents the
+correlation between the stock price 20 days ago and now. In order to choose which points
+we want for our AMIRA model, we must go lag to lag in order. When we eventually reach one
+that does not extend beyond the blue area (meaning it is insignificant), we stop and take
+all data points from the previous lags. For example, if the first and second lags extend
+beyond the blue area but the third lag does not, then we use the data points
+from lag 1 and lag 2 in our AMIRA model. However, if the second lag is insignificant, then
+it is ill-advised to use an AMIRA model.
 ''')
 
 make_pacf_plot(
@@ -364,3 +377,10 @@ make_pacf_plot(
     y_label= f'Correlation',
     x_label= f'Lag #'
 )
+
+st.write('''
+Thank you for reading my AMIRA model. At the end of this I hope that you are able to 
+enter any stock and quickly analyze if an AMIRA model is appropriate for predicting
+future stock price behavior. I also hope that you were able to learn something new
+along the way.
+''')
