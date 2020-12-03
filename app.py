@@ -63,10 +63,10 @@ def post_image(image, caption = '', width = None):
 
 def make_summary_table(y_col):
     stat_dict = {
-        'Mean' : np.mean(y_col),
-        'Median' : np.quantile(y_col, 0.5),
-        'Std' : np.std(y_col),
-        'Skew' : skew(y_col)
+        'Mean' : np.mean(y_col.tolist()),
+        'Median' : np.quantile(y_col.tolist(), 0.5),
+        'Std' : np.std(y_col.tolist()),
+        'Skew' : skew(y_col.tolist())
     }
     dat = pd.DataFrame.from_dict(stat_dict)
     st.table(dat)
