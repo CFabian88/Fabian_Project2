@@ -17,14 +17,14 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 #### FUNCTIONS ####
 # Price to get data from Yahoo Finance
-def line_graph(y_col):
+def line_graph(y_col, y_label = '', x_label = ''):
     graph = px.line(
         x = df.index, 
         y = y_col,
         title = f'Closing Prices for {stock}',
         labels = {
-            'y' : 'Closing Price ($)', 
-            'x' : 'Time'
+            'y' : y_label, 
+            'x' : x_label
         }
         )
     st.plotly_chart(graph)
@@ -174,7 +174,11 @@ df = df.dropna(axis = 0)
 st.write(df)
 
 # Create line graph of daily closing prices
-line_graph(df['Close'])
+line_graph(
+    df['Close'], 
+    y_label = 'Closing Price ($)', 
+    x_label = 'Time'
+    )
 
 # Histogram of daily returns + fitted normal dist curve
 hist_norm_curve(df['Returns'])
@@ -292,7 +296,11 @@ As we saw above, the Brownian Motion can change quite drastically with changes i
 volatility. So, it would be useful to know if our data's volitility has varied 
 throughout time. Lets look at our returns as function of time.
 ''')
-line_graph(df['Returns'])
+line_graph(
+    df['Returns'], 
+    y_label = 'Standard Deviation of Returns (%)',
+    x_label = 'Time'
+)
 st.write('''
 If there are points in the graph where the data looks nonsequential, then that means
 our data's volatility varies throughout time. This phenomenon is known as volatility
