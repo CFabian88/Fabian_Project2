@@ -146,15 +146,15 @@ hand, if our median is less than our mean, then we know that our data is right(p
 which means that there are more data points below the mean than above. But, this also
 means that there are extreme values on the upper end of the data that are pulling the
 mean higher. The greater the difference between the mean and median, the greater the
-skewness. Below is an image showing examples of all three.
+skewness. Please refer to the \"Examples of skewness\" image below for examples.
 ''')
 post_image('skew.jpg', caption = 'Examples of skewness')
 st.write('''
 Another statistic to evaluate is Skew, which is a measurement of the symmetry of our 
 data. Skew has a range of all real postive and negative numbers. The smaller the statistic,
 the more left-skewed the data is and the greater the statistic the more right-skewed
-the data is. A perfectly symmetrical distribution will have a skew value of 0. Refer to
-the \"Examples of skewness\" image above for examples.
+the data is. A perfectly symmetrical distribution will have a skew value of 0. Please refer 
+to the \"Examples of skewness\" image above for examples.
 ''')
 st.write('''
 Lastly, we will look at the statistic Kurtosis. Kurtosis is a measure of how much the
@@ -163,6 +163,6 @@ real positive or negative number. The smaller a kurtosis value is, the more Plat
 the distribution is. A Platykurtic Distribution is one that looks shorter and wider than
 a normal distribution. The larger a kurtosis value is, the more Leptokurtic the distribution 
 is. A Leptokurtic Distribution is one that looks taller and skinnier than a normal
-distribution. Examples of these distributions can be seen below.
+distribution. Please refer to the \"Examples of kurtosis\" image below for examples.
 ''')
 post_image('kurtosis.jpg', 'Examples of kurtosis')
