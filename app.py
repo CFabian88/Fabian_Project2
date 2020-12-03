@@ -322,6 +322,17 @@ the previous 20 data points. This way, the time variable in our calculation will
 constant. This will drastically smooth our plot from above.
 ''')
 rolling_line_graph(df['Returns'], roll_per = 15)
+st.write('''
+As we can see, our suspicions about the volatility varying throughout time are true.
+It is certainly not a constant value by any means. In fact, we see quite a bit of spikeage
+and oscillation. The most likely cause for these dramatic changes is most likely due to
+the extreme outliers in the data set. Because these points are so influential to the model,
+we cannot neglect these outliers when producing a model. 
+''')
 
+st.header('Partial Autocorrelation Function')
+st.write('''
+
+''')
 plot_pacf(df['Returns'], lags = 20)
 st.pyplot()
