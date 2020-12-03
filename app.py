@@ -47,8 +47,9 @@ def hist_norm_curve(y_col):
     plt.title(title)
     st.pyplot()
 
-def boxplot(y_col, label):
+def boxplot(y_col, label = '', title = ''):
     plt.boxplot(y_col,labels = [label])
+    plt.title(title)
     st.pyplot()
 
 def make_lognorm_dist(col):
@@ -115,4 +116,4 @@ line_graph(df['Close'])
 hist_norm_curve(df['Returns'])
 
 # Box plot of returns
-boxplot(df['Returns'], 'Daily Returns')
+boxplot(df['Returns'], 'Returns', 'Boxplot of Daily Returns')
