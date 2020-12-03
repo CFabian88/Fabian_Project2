@@ -176,6 +176,7 @@ distribution. Please refer to the \"Examples of kurtosis\" image below for examp
 post_image('kurtosis.jpg', 'Examples of kurtosis')
 
 st.write('''
-Next, we will run a skew test.
+Next, we will run a skew test with the following hypotheses:
 ''')
+post_image('skew_test_hypoth.jpg')
 skew_test(df['Returns'])
