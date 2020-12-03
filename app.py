@@ -47,6 +47,10 @@ def hist_norm_curve(y_col):
     plt.title(title)
     st.pyplot()
 
+def boxplot(y_col, label):
+    plt.boxplot(y_col,labels = [label])
+    st.pyplot()
+
 def make_lognorm_dist(col):
     st_dev = col.std()
     mean = col.mean()
@@ -110,3 +114,5 @@ line_graph(df['Close'])
 # Histogram of daily returns + fitted normal dist curve
 hist_norm_curve(df['Returns'])
 
+# Box plot of returns
+boxplot(df['Returns'])
