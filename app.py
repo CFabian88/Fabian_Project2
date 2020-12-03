@@ -291,7 +291,7 @@ random phenomena.
 st.write('''
 One example of a common stochastic process used in finance is the Geometric Brownian
 Motion model. The Brownian Motion, often called the Wiener Process, is simply just the
-calculated, random movement of a thing given the mean and standard deviation of that 
+calculated random movement of a thing given the mean and standard deviation of that 
 thing. In this case, we are refering to stock prices. Due to it's ability to account 
 for randomness, it is easy to see why it is such a common tool in the finance industry.
 Below is an example of various Brownian Motion models, all with varying variances 
