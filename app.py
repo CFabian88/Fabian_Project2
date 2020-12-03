@@ -206,8 +206,17 @@ line_graph(
 # Histogram of daily returns + fitted normal dist curve
 hist_norm_curve(df['Returns'])
 
+st.write('We can see above that the distribution of our daily returns is relatively normal')
+
 # Box plot of returns
 boxplot(df['Returns'], 'Returns', 'Boxplot of Daily Returns')
+
+st.write('''
+Looking above, the stock data generally has many outliers and a small interquartile range.
+This phenomenon is known as \'fat tails\' because of how much they affect the data.
+Normally, we would remove outliers, but for this analysis we won\'t and I will explain
+why later.
+''')
 
 st.header('Data Observables')
 st.write('''
