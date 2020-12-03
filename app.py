@@ -186,7 +186,7 @@ if the p-value is less than 0.05, we will reject the null hypothesis and accept 
 alternative one as true. If the p-value is greater than or equal to 0.05, we will NOT
 reject the null hypothesis and will continue to accept it as true. In this case, if the
 p-value is less than 0.05, then we will reject the null hypothesis that says the data
-is normally distributed, and accept the alternative which states that the data is NOT
-normally distributed. And if the p-value is greater than or equal to 0.05, then we will
-accept the conclusion that the data is normally distributed.
+is symmetrical, and accept the alternative which states that the data is NOT
+symmetrical. And if the p-value is greater than or equal to 0.05, then we will
+accept the conclusion that the data is symmetrical.
 ''')
