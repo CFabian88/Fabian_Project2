@@ -3,16 +3,11 @@ from statsmodels.graphics.tsaplots import plot_pacf
 import pandas_datareader.data as web
 import plotly.express as px
 import matplotlib.pyplot as plt
-from datetime import date
 import streamlit as st
 from PIL import Image
-import datetime as dt
 import pandas as pd
 import numpy as np 
-import requests
 import time
-import math
-import os
 
 # Ignore PyPlot Warnings
 st.set_option('deprecation.showPyplotGlobalUse', False)
