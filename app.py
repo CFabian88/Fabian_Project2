@@ -1,4 +1,4 @@
-from scipy.stats import lognorm, norm
+from scipy.stats import lognorm, norm, skew, kurtosis, skewtest, kurtosistest
 import pandas_datareader.data as web
 import plotly.express as px
 import matplotlib.pyplot as plt
