@@ -299,13 +299,13 @@ st.write('''
 As we saw above, the Brownian Motion can change quite drastically with changes in
 volatility. So, if we want to try and predict future stock prices using this model, 
 it would be useful to know if our data's volitility has varied throughout time. Lets 
-look at the standard deviation of our returns as a function of time.
+look at the raw time series data of our returns.
 ''')
 line_graph(
-    df['Returns'].std(), 
-    y_label = 'Standard Deviation (%)',
+    df['Returns'], 
+    y_label = 'Returns (%)',
     x_label = 'Time',
-    title = f'Standard Deviation of Returns for {stock} (%)'
+    title = f'Time Series Data of Returns for {stock}'
 )
 st.write('''
 As we can see, the data is nonsequential the entire time and our data's volatility is 
