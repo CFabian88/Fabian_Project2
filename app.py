@@ -108,7 +108,7 @@ st.write('''
     ''')
 
 # IMAGE: daily_returns
-post_image('daily_return.jpg', 'Daily return formula')
+post_image('pics/daily_return.jpg', 'Daily return formula')
 
 # Used as a command to improve processing speed
 # Must be followed by a function
@@ -156,7 +156,7 @@ means that there are extreme values on the upper end of the data that are pullin
 mean higher. The greater the difference between the mean and median, the greater the
 skewness. Please refer to the \"Examples of skewness\" image below for examples.
 ''')
-post_image('skew.jpg', caption = 'Examples of skewness')
+post_image('pics/skew.jpg', caption = 'Examples of skewness')
 st.write('''
 Another statistic to evaluate is Skew, which is a measurement of the symmetry of our 
 data. Skew has a range of all real postive and negative numbers. The smaller the statistic,
@@ -173,7 +173,7 @@ a normal distribution. The larger a kurtosis value is, the more Leptokurtic the 
 is. A Leptokurtic Distribution is one that looks taller and skinnier than a normal
 distribution. Please refer to the \"Examples of kurtosis\" image below for examples.
 ''')
-post_image('kurtosis.jpg', 'Examples of kurtosis')
+post_image('pics/kurtosis.jpg', 'Examples of kurtosis')
 
 st.write('''
 Next, we will run a skew test with the following hypotheses:
