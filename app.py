@@ -142,15 +142,6 @@ def kurtosis_test(y_col):
     dat = pd.DataFrame(stat_dict, index = [f'{stock}'])
     st.table(dat)
 
-# Load csv with all ticker symbols + company names
-file = pd.read_csv('companylist.csv')
-comapnies = pd.DataFrame(file)
-# Drop unwanted column
-companies = companies.drop(columns = ['Unnamed: 0'])
-# Convert to dictionary where keys are ticker symbols
-# And company names are corresponding values
-companies = companies.set_index('Symbol').T.to_dict('list')
-
 # Title of app
 st.title('Stock Return Analysis')
 
@@ -163,7 +154,7 @@ stock = st.selectbox(
     df.keys()
     )
 stock = stock.upper()
-company = comapnies[stock]
+company = get_company(stock)
 
 
 # DESCRIP: data
