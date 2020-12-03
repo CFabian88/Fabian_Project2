@@ -53,6 +53,27 @@ def boxplot(y_col, label = '', title = ''):
     plt.title(title)
     st.pyplot()
 
+
+def qq_plot(y_col, title = ''):
+    # Create set of 1000 numbers equally spaced betweed 0.01 and 0.99
+    x = np.linspace(0.01,0.99,1000)
+    # Create Sample Quantiles
+    q1 = np.quantile(y_col, x)
+    # Create Theoretical Quantiles of normally distributed data
+    q2 = norm.ppf(x, loc=np.mean(y_col), scale=np.std(y_col))
+    # Plot Sample quantiles as x-variable and Theoretical quantiles as y-variable
+    plt.plot(q1,q2)
+    # Plot y = x
+    plt.plot([min(q1),max(q1)],[min(q2),max(q2)])
+    # Set limits on x and y axes
+    plt.xlim((min(q1),max(q1)))
+    plt.ylim((min(q2),max(q2)))
+    # Title + axis labels
+    plt.title(title)
+    plt.xlabel('Sample Quantiles')
+    plt.ylabel('Theoretical Quantiles')
+    st.pyplot()
+
 def make_lognorm_dist(col):
     st_dev = col.std()
     mean = col.mean()
@@ -184,6 +205,7 @@ distribution. Please refer to the \"Examples of kurtosis\" image below for examp
 ''')
 post_image('pics/kurtosis.jpg', 'Examples of kurtosis')
 
+st.header('Hypothesis Tests')
 st.write('''
 Next, we will run a skew test with the following hypotheses:
 ''')
@@ -211,4 +233,19 @@ If the p-value is less than 0.05, then we can reject the null hypothesis that st
 data is normally distributed and accept the alternative that says the data is NOT normally
 distributed. If the p-value is greater than or equal to 0.05, then we can continue to
 accept the null hypothesis that our data is indeed normally distributed.
+''')
+
+st.header('QQ-Plot')
+st.write('''
+Although we can tell a lot about a dataset's distribution based on our skew and kurtosis
+tests. However, a QQ (Quantile-Quantile) Plots are plots that show a datasets quantile 
+values versus those quantile values of a normal distribution. Lets take a look. 
+''')
+qq_plot(df['Returns'], title = f'QQ-Plot of {stock}')
+st.write('''
+If our data set is normally distributed, then the line for our sample data will be very
+similar to the line y=x. This is because our y-variable is the theoretical quantiles of
+our data set if it was truly normally distributed and our x-variable are what our dataset's
+quantiles actually are. Therefore, if we want our data to be normally distributed, we would
+want our 'x' and 'y' values to be the same for each coordinate.
 ''')
