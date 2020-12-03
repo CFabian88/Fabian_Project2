@@ -361,6 +361,6 @@ In order to visualize this, we will plot our PACF function below.
 make_pacf_plot(
     df['Returns'], 
     title = f'Partial Autocorrelation Function for {stock}',
-    y_label= f'P-value',
+    y_label= f'Correlation',
     x_label= f'Lag #'
 )
