@@ -18,11 +18,11 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 #### FUNCTIONS ####
 # Price to get data from Yahoo Finance
-def line_graph(y_col, y_label = '', x_label = ''):
+def line_graph(y_col, y_label = '', x_label = '', title = ''):
     graph = px.line(
         x = df.index, 
         y = y_col,
-        title = f'Closing Prices for {stock}',
+        title = title,
         labels = {
             'y' : y_label, 
             'x' : x_label
@@ -178,7 +178,8 @@ st.write(df)
 line_graph(
     df['Close'], 
     y_label = 'Closing Price ($)', 
-    x_label = 'Time'
+    x_label = 'Time',
+    title = f'Closing Prices for {stock}'
     )
 
 # Histogram of daily returns + fitted normal dist curve
@@ -301,9 +302,10 @@ it would be useful to know if our data's volitility has varied throughout time. 
 look at the standard deviation of our returns as a function of time.
 ''')
 line_graph(
-    df['Returns'], 
-    y_label = 'Standard Deviation of Returns (%)',
-    x_label = 'Time'
+    df['Returns'].std(), 
+    y_label = 'Standard Deviation (%)',
+    x_label = 'Time',
+    title = f'Standard Deviation of Returns for {stock} (%)'
 )
 st.write('''
 As we can see, the data is nonsequential the entire time and our data's volatility is 
