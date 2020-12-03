@@ -115,4 +115,4 @@ line_graph(df['Close'])
 hist_norm_curve(df['Returns'])
 
 # Box plot of returns
-boxplot(df['Returns'])
+boxplot(df['Returns'], 'Daily Returns')
