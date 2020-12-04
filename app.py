@@ -133,6 +133,16 @@ st.title('Stock Return Analysis')
 # Intro Header
 st.header('Overview')
 
+# GitHub Link
+st.write('''
+The link to my GitHub Repo with all files is here: https://github.com/CFabian88/Fabian_Project2
+''')
+
+# DeepNote Link
+st.write('''
+The link to my DeepNote is here: https://deepnote.com/project/793ebef0-25df-46a5-b3ad-aec0d41cd03f
+''')
+
 # Overview Message
 st.write('''
 This dashboard is designed to evaluate whether a stock's data is appropriate for using
