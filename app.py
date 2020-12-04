@@ -128,10 +128,17 @@ def kurtosis_test(y_col):
     st.table(dat)
 
 # Title of app
+
 st.title('Stock Return Analysis')
 
 # Intro Header
 st.header('Overview')
+
+# GitHub Link
+st.write('''
+Before we start, you can access my GitHub account and view all files including a 
+neural network notebook at: https://github.com/CFabian88/Fabian_Project2
+''')
 
 # Overview Message
 st.write('''
