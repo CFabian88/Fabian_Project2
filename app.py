@@ -8,7 +8,7 @@ from PIL import Image
 import pandas as pd
 import numpy as np 
 import time
-'alright'
+
 # Ignore PyPlot Warnings
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
