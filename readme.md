@@ -7,3 +7,4 @@ For my Streamlit dashboard, I made a tutorial on how one can use stock data to d
 
 DEEPNOTE REPORT URL: https://deepnote.com/project/793ebef0-25df-46a5-b3ad-aec0d41cd03f
 For my Deepnote project, I created a neural network from scratch that intakes stock price data and outputs prediciton values for the future that can be cross-validated. I also show the user how to measure the effectiveness of their model using root mean squared error and tips on how to improve the model. Lastly, I show the user how to save the model as a .h5 file that can be called to othe python scripts and used to predict future stock prices.
+Hope this works
