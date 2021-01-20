@@ -140,7 +140,7 @@ The link to my GitHub Repo with all files is here: https://github.com/CFabian88/
 
 # DeepNote Link
 st.write('''
-The link to my DeepNote is here: https://deepnote.com/project/793ebef0-25df-46a5-b3ad-aec0d41cd03f
+The link to my DeepNote is here: https://deepnote.com/project/da2f01f1-63e9-4a2f-8c60-75ed438ad660#%2Fneural_net.ipynb
 ''')
 
 # Overview Message
